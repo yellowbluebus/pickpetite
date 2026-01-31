@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="PickPetite Blog - Tips, guides, and inspiration for minimalist living, home organization, and eco-friendly product recommendations.">
+    <title>Blog | PickPetite - Minimalist Living Tips & Product Guides</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .blog-hero {
+            padding: calc(72px + var(--space-4xl)) 0 var(--space-3xl);
+            background: var(--gradient-warm);
+            text-align: center;
+        }
+
+        .blog-hero h1 {
+            margin-bottom: var(--space-md);
+        }
+
+        .blog-hero p {
+            color: var(--color-text-light);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .blog-grid {
+            padding: var(--space-4xl) 0;
+            background: var(--color-bg);
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-xl);
+        }
+
+        .post-card {
+            background: var(--color-bg);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+            transition: all 0.3s ease;
+        }
+
+        .post-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-accent);
+        }
+
+        .post-image {
+            height: 200px;
+            background: var(--gradient-warm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .post-content {
+            padding: var(--space-xl);
+        }
+
+        .post-category {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-accent-dark);
+            margin-bottom: var(--space-sm);
+        }
+
+        .post-card h2 {
+            font-size: 1.25rem;
+            margin-bottom: var(--space-md);
+            line-height: 1.4;
+        }
+
+        .post-card h2 a {
+            color: var(--color-primary);
+            transition: color 0.3s ease;
+        }
+
+        .post-card h2 a:hover {
+            color: var(--color-accent-dark);
+        }
+
+        .post-excerpt {
+            color: var(--color-text-light);
+            font-size: 0.9375rem;
+            margin-bottom: var(--space-lg);
+            line-height: 1.6;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.8125rem;
+            color: var(--color-text-muted);
+        }
+
+        .read-more {
+            color: var(--color-accent-dark);
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .read-more:hover {
+            gap: var(--space-sm);
+        }
+
+        .featured-post {
+            grid-column: span 3;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 0;
+        }
+
+        .featured-post .post-image {
+            height: 100%;
+            min-height: 300px;
+        }
+
+        .featured-post .post-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--space-2xl);
+        }
+
+        .featured-post h2 {
+            font-size: 1.75rem;
+        }
+
+        @media (max-width: 1024px) {
+            .posts-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .featured-post {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-post {
+                grid-column: span 1;
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">✦</span>
+                <span class="logo-text">PickPetite</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="index.html#how-it-works">How It Works</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#join" class="btn btn-primary">Join Waitlist</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>The PickPetite Blog</h1>
+            <p>Tips, guides, and inspiration for creating a minimalist, healthy, and harmonious living space.</p>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blog-grid">
+        <div class="container">
+            <div class="posts-grid">
+                <!-- Featured Post -->
+                <article class="post-card featured-post">
+                    <div class="post-image">🍳</div>
+                    <div class="post-content">
+                        <span class="post-category">Kitchen</span>
+                        <h2><a href="blog/minimalist-kitchen-essentials.html">10 Minimalist Kitchen Essentials That
+                                Replace 50+ Gadgets</a></h2>
+                        <p class="post-excerpt">Discover the only kitchen tools you actually need. These versatile,
+                            space-saving essentials will help you declutter your counters while making cooking more
+                            enjoyable.</p>
+                        <div class="post-meta">
+                            <span>January 31, 2026 · 8 min read</span>
+                            <a href="blog/minimalist-kitchen-essentials.html" class="read-more">Read More →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 2 -->
+                <article class="post-card">
+                    <div class="post-image">🛏️</div>
+                    <div class="post-content">
+                        <span class="post-category">Bedroom</span>
+                        <h2><a href="blog/bedroom-declutter-guide.html">How to Declutter Your Bedroom in 30 Minutes</a>
+                        </h2>
+                        <p class="post-excerpt">Transform your sleep sanctuary with this quick, effective decluttering
+                            method inspired by Japanese organization principles.</p>
+                        <div class="post-meta">
+                            <span>January 28, 2026</span>
+                            <a href="blog/bedroom-declutter-guide.html" class="read-more">Read →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="post-card">
+                    <div class="post-image">🌿</div>
+                    <div class="post-content">
+                        <span class="post-category">Eco-Friendly</span>
+                        <h2><a href="blog/eco-friendly-swaps.html">15 Eco-Friendly Product Swaps for a Sustainable
+                                Home</a></h2>
+                        <p class="post-excerpt">Simple, affordable replacements for everyday items that reduce waste and
+                            bring more intention to your daily routines.</p>
+                        <div class="post-meta">
+                            <span>January 25, 2026</span>
+                            <a href="blog/eco-friendly-swaps.html" class="read-more">Read →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 4 -->
+                <article class="post-card">
+                    <div class="post-image">🪴</div>
+                    <div class="post-content">
+                        <span class="post-category">Living Room</span>
+                        <h2><a href="blog/living-room-organization.html">The Art of the Living Room: Creating Spaces
+                                That Inspire</a></h2>
+                        <p class="post-excerpt">Design a living room that encourages movement, relaxation, and
+                            meaningful connections with these minimalist principles.</p>
+                        <div class="post-meta">
+                            <span>January 22, 2026</span>
+                            <a href="blog/living-room-organization.html" class="read-more">Read →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Get Minimalist Tips in Your Inbox</h2>
+                <p>Join our community for weekly inspiration on creating a clutter-free, joyful living space.</p>
+                <form class="signup-form" id="signup-form">
+                    <input type="email" placeholder="Enter your email" required aria-label="Email address">
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+                <p class="form-note">Join 2,000+ minimalist enthusiasts. No spam, ever.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">✦</span>
+                        <span class="logo-text">PickPetite</span>
+                    </a>
+                    <p>Bringing order and simplicity into your life through intelligent design and conscious
+                        consumption.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <ul>
+                            <li><a href="index.html#features">Features</a></li>
+                            <li><a href="index.html#how-it-works">How It Works</a></li>
+                            <li><a href="index.html#faq">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="mailto:hello@pickpetite.com">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                            <li><a href="terms-of-service.html">Terms of Service</a></li>
+                            <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 PickPetite. All rights reserved.</p>
+                <p class="affiliate-disclosure">As an Amazon Associate, we earn from qualifying purchases. Product
+                    recommendations are independently chosen.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

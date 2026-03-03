@@ -6,22 +6,19 @@
   <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <title>PickPetite</title>
-  <!-- Start Single Page Apps for GitHub Pages -->
+  <!-- SPA Redirection Script -->
   <script type="text/javascript">
-    // Single Page Apps for GitHub Pages
-    // https://github.com/rafgraph/spa-github-pages
     (function (l) {
       if (l.search[1] === '/') {
         var decoded = l.search.slice(1).split('&').map(function (s) {
           return s.replace(/~and~/g, '&')
         }).join('?');
         window.history.replaceState(null, null,
-          l.pathname.slice(0, -1) + decoded + l.hash
+          l.pathname.slice(0, l.pathname.length - l.search.length) + decoded + l.hash
         );
       }
     }(window.location))
   </script>
-  <!-- End Single Page Apps for GitHub Pages -->
   <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
   <style id="expo-reset">
     /* These styles make the body full-height */
@@ -51,7 +48,7 @@
   </noscript>
   <!-- The root element for your Expo app. -->
   <div id="root"></div>
-  <script src="/app/_expo/static/js/web/entry-6765a105ed32d25fdc45e7560846154a.js" defer></script>
+  <script src="/app/_expo/static/js/web/entry-850716a438d55e173e6856805117ae51.js" defer></script>
 </body>
 
 </html>

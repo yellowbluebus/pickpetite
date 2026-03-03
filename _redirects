@@ -1,3 +1,3 @@
 # Google Pages redirect rules
-# Serve app/index.html for /app route
-/app    /app/index.html   200
+# Serve app/index.html for /app route and all sub-routes (SPA mode)
+/app/* /app/index.html 200

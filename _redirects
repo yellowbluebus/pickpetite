@@ -1,5 +1,0 @@
-# Google Pages redirect rules
-/web/* /web/index.html 200
-/web /web/index.html 200
-/app/* /web/index.html 200
-/app /web/index.html 200

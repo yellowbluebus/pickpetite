@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>PickPetite</title>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafgraph/spa-github-pages
+      var pathSegmentsToKeep = 0; // The app is at pickpetite.com/app, but 404.html is at root. 
+      // Wait, if the user wants pickpetite.com/app/..., and 404.html is at root:
+      // If someone hits pickpetite.com/app/results, it 404s at root.
+      // So pathSegmentsToKeep should be 0 if we want to redirect to /app/?/results
+      // and index.html at /app/ will handle it.
+      
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/app/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep + 1).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

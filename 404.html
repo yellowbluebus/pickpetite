@@ -6,11 +6,7 @@
     <script type="text/javascript">
       // Single Page Apps for GitHub Pages
       // https://github.com/rafgraph/spa-github-pages
-      var pathSegmentsToKeep = 0; // The app is at pickpetite.com/app, but 404.html is at root. 
-      // Wait, if the user wants pickpetite.com/app/..., and 404.html is at root:
-      // If someone hits pickpetite.com/app/results, it 404s at root.
-      // So pathSegmentsToKeep should be 0 if we want to redirect to /app/?/results
-      // and index.html at /app/ will handle it.
+      var pathSegmentsToKeep = 1; // The app is at pickpetite.com/app, keep 1 segment so /app results -> /app/?/results
       
       var l = window.location;
       l.replace(

@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>PickPetite</title>
-    <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // https://github.com/rafgraph/spa-github-pages
-      var pathSegmentsToKeep = 1; // The app is at pickpetite.com/app, keep 1 segment so /app results -> /app/?/results
-      
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/app/?/' +
-        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep + 1).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
-    </script>
-  </head>
-  <body>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>PickPetite</title>
+  <script type="text/javascript">
+    // Single Page Apps for GitHub Pages
+    // https://github.com/rafgraph/spa-github-pages
+    var pathSegmentsToKeep = 0;
+
+    var l = window.location;
+    l.replace(
+      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+      l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/app/?/' +
+      l.pathname.slice(1).split('/').slice(pathSegmentsToKeep + 1).join('/').replace(/&/g, '~and~') +
+      (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+      l.hash
+    );
+  </script>
+</head>
+
+<body>
+</body>
+
 </html>

@@ -6,14 +6,18 @@
 /* CSS Custom Properties */
 :root {
   /* Colors - Tactile Neutral palette */
-  --color-primary: #7D7C75; /* Muted Sage */
-  --color-primary-light: #A68966; /* Smoked Oak */
-  --color-primary-dark: #2C2C2C; /* Soft Charcoal */
+  --color-primary: #7D7C75;
+  /* Muted Sage */
+  --color-primary-light: #A68966;
+  /* Smoked Oak */
+  --color-primary-dark: #2C2C2C;
+  /* Soft Charcoal */
   --color-accent: #7D7C75;
   --color-accent-dark: #A68966;
   --color-accent-light: #FAF9F6;
 
-  --color-bg: #FAF9F6; /* Off-White/Linen */
+  --color-bg: #FAF9F6;
+  /* Off-White/Linen */
   --color-bg-warm: #FAF9F6;
   --color-bg-cream: #FAF9F6;
   --color-bg-dark: #2C2C2C;
@@ -24,7 +28,8 @@
   --color-text-inverse: #FAF9F6;
 
   --color-border: rgba(44, 44, 44, 0.1);
-  --color-shadow: transparent; /* Shadows are banned */
+  --color-shadow: transparent;
+  /* Shadows are banned */
 
   /* Gradients - Neutral and subtle */
   --gradient-warm: linear-gradient(135deg, #FAF9F6 0%, #FAF9F6 100%);
@@ -164,14 +169,15 @@ p {
 }
 
 .btn-primary {
-  background: var(--color-primary);
+  background: var(--color-primary-dark);
   color: var(--color-bg);
-  border-color: var(--color-primary);
+  border-color: var(--color-primary-dark);
+  font-weight: 600;
 }
 
 .btn-primary:hover {
-  background: var(--color-primary-dark);
-  border-color: var(--color-primary-dark);
+  background: black;
+  border-color: black;
 }
 
 .btn-secondary {
@@ -479,6 +485,15 @@ p {
 
 .feature-highlight {
   background: var(--gradient-accent);
+  color: var(--color-bg);
+}
+
+.feature-highlight h3 {
+  color: var(--color-bg);
+}
+
+.feature-highlight p {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .feature-label {

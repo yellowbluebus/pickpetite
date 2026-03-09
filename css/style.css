@@ -170,7 +170,7 @@ p {
 
 .btn-primary {
   background: var(--color-primary-dark);
-  color: var(--color-bg);
+  color: #FFFFFF;
   border-color: var(--color-primary-dark);
   font-weight: 600;
 }
@@ -178,6 +178,7 @@ p {
 .btn-primary:hover {
   background: black;
   border-color: black;
+  color: #FFFFFF;
 }
 
 .btn-secondary {
@@ -485,15 +486,16 @@ p {
 
 .feature-highlight {
   background: var(--gradient-accent);
-  color: var(--color-bg);
+  color: #FFFFFF !important;
 }
 
-.feature-highlight h3 {
-  color: var(--color-bg);
+.feature-highlight h3,
+.feature-highlight .feature-label {
+  color: #FFFFFF !important;
 }
 
 .feature-highlight p {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95) !important;
 }
 
 .feature-label {

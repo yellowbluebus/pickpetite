@@ -43,7 +43,6 @@
 
   <script>
     (function() {
-      // 1. Get Params
       const urlParams = new URLSearchParams(window.location.search);
       const asin = urlParams.get('a');
       const source = urlParams.get('s') || 'direct';
@@ -53,7 +52,6 @@
         return;
       }
 
-      // 2. Map Source to Tracking ID
       const tagMap = {
         'tk': 'pickpetite-tk-20',
         'ig': 'pickpetite-ig-20',
@@ -63,23 +61,28 @@
       };
       const tag = tagMap[source] || tagMap['direct'];
 
-      // 3. Construct Targets
-      const appUrl = `pickpetite://product-detail?id=${asin}&tag=${tag}`;
-      const webUrl = `https://pickpetite.com/app/product-detail?id=${asin}&tag=${tag}`;
+      // Construct Target URL for Web (hitting the root directly with params for reliability on static host)
+      const webUrl = `https://pickpetite.com/app/?id=${asin}&tag=${tag}`;
 
-      // 4. Redirection Logic
-      const start = Date.now();
-      
-      // Attempt to open native app
-      window.location.href = appUrl;
+      // Detect Platform
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-      // Fallback to web app after a brief delay
-      setTimeout(function() {
-        // If the app didn't open (the user is still here), go to web
-        if (Date.now() - start < 1500) {
-          window.location.href = webUrl;
-        }
-      }, 500);
+      if (isMobile) {
+        // Attempt to open native app
+        const appUrl = `pickpetite://product-detail?id=${asin}&tag=${tag}`;
+        const start = Date.now();
+        window.location.href = appUrl;
+
+        // Fallback to web app after a brief delay
+        setTimeout(function() {
+          if (Date.now() - start < 1500) {
+            window.location.href = webUrl;
+          }
+        }, 500);
+      } else {
+        // On Desktop, go straight to Web App to avoid "Open App" prompts
+        window.location.href = webUrl;
+      }
     })();
   </script>
 </body>

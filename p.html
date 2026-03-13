@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opening Sanctuary | PickPetite</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    body {
+      background-color: #FAF9F6;
+      color: #2C2C2C;
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      opacity: 0;
+      animation: fadeIn 0.4s ease-out forwards;
+    }
+    @keyframes fadeIn { to { opacity: 1; } }
+    .loader {
+      text-align: center;
+    }
+    .logo {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 16px;
+    }
+    .text {
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <div class="loader">
+    <img src="/images/logo.png" alt="PickPetite" class="logo">
+    <div class="text">Opening Sanctuary...</div>
+  </div>
+
+  <script>
+    (function() {
+      // 1. Get Params
+      const urlParams = new URLSearchParams(window.location.search);
+      const asin = urlParams.get('a');
+      const source = urlParams.get('s') || 'direct';
+      
+      if (!asin) {
+        window.location.href = '/app';
+        return;
+      }
+
+      // 2. Map Source to Tracking ID
+      const tagMap = {
+        'tk': 'pickpetite-tk-20',
+        'ig': 'pickpetite-ig-20',
+        'fb': 'pickpetite-fb-20',
+        'yt': 'pickpetite-yt-20',
+        'direct': 'pickpetite-20'
+      };
+      const tag = tagMap[source] || tagMap['direct'];
+
+      // 3. Construct Targets
+      const appUrl = `pickpetite://product-detail?id=${asin}&tag=${tag}`;
+      const webUrl = `https://pickpetite.com/app/product-detail?id=${asin}&tag=${tag}`;
+
+      // 4. Redirection Logic
+      const start = Date.now();
+      
+      // Attempt to open native app
+      window.location.href = appUrl;
+
+      // Fallback to web app after a brief delay
+      setTimeout(function() {
+        // If the app didn't open (the user is still here), go to web
+        if (Date.now() - start < 1500) {
+          window.location.href = webUrl;
+        }
+      }, 500);
+    })();
+  </script>
+</body>
+</html>

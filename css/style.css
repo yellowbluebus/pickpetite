@@ -248,9 +248,11 @@ p {
   font-weight: 500;
 }
 
-.logo-icon {
-  color: var(--color-accent);
-  font-size: 1.25rem;
+.logo-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
 }
 
 .nav-links {

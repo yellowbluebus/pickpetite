@@ -1,6 +1,6 @@
 /* =====================================================
    PickPetite - CSS Styles
-   European Design meets Japanese Minimalism
+   Lose Clutter. Win Space.
    ===================================================== */
 
 /* CSS Custom Properties */
@@ -357,6 +357,14 @@ p {
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
+}
+
+.hero-illustration {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-xl);
+  animation: fadeInUp 1s ease-out 0.4s both;
 }
 
 .hero-card {
